@@ -1,7 +1,8 @@
-import React from "react";
-import logo from "../assets/images/Logos/logo-evolution-sports.png";
+import React, { useState, useEffect } from "react";
+import logo from "../assets/images/Logos/logo-evolution-sports.webp";
 import logoMethod from "../assets/images/Logos/logo-the-evolution-method.webp";
-import perfilFabricio from "../assets/images/Logos/perfil-fabricio.jpg";
+import logoLiveADream from "../assets/images/Logos/logo-live-a-dream_files.webp";
+import perfilFabricio from "../assets/images/Logos/perfil-fabricio.webp";
 import "../pages/connects.css";
 
 function SocialLink({ icon, href, label }) {
@@ -24,7 +25,12 @@ function AccordionItem({ id, title, links, logo }) {
                     aria-expanded="false"
                     aria-controls={`collapse-${id}`}
                 >
-                    <img src={logo} alt={`${title} logo`} className="accordion-logo me-2" />
+                    {/* Exibe o ícone do YouTube se for o canal do YouTube, senão exibe a logo */}
+                    {id === "canal-youtube" ? (
+                        <i className="bi bi-youtube me-2" style={{ fontSize: "2.2rem", color: "#ff0000" }}></i>
+                    ) : (
+                        <img src={logo} alt={`${title} logo`} className="accordion-logo me-2" />
+                    )}
                     {title}
                 </button>
             </h2>
@@ -44,60 +50,73 @@ function AccordionItem({ id, title, links, logo }) {
     );
 }
 
-export default function Connects() {
-    const accordionData = [
-        {
-            id: "evolution-house",
-            title: "EVOLUTION HOUSE",
-            links: [
-                { icon: "bi-whatsapp", href: "https://wa.me/5541999999999", label: "Evolution House" },
-                { icon: "bi-instagram", href: "https://instagram.com/evolutionhousecwb", label: "@evolutionhousecwb" },
-                { icon: "bi-facebook", href: "https://facebook.com/evolutionhousecwb", label: "Evolution House Suplementos" },
-                { icon: "bi-youtube", href: "https://youtube.com/@evolutionhouse", label: "@EvolutionHouse" },
-            ],
-            logo: logo,
-        },
-        {
-            id: "the-evolution-method",
-            title: "THE EVOLUTION METHOD",
-            links: [
-                { icon: "bi-whatsapp", href: "https://wa.me/5541999888777", label: "The Evolution Method" },
-                { icon: "bi-instagram", href: "https://instagram.com/theevolutionmethod", label: "The Evolution Method" },
-                { icon: "bi-facebook", href: "https://facebook.com/theevolutionmethod", label: "The Evolution Method" },
-                { icon: "bi-youtube", href: "https://youtube.com/@theevolutionmethod", label: "The Evolution Method" },
-            ],
-            logo: logoMethod,
-        },
-        {
-            id: "fabricio-de-souza",
-            title: "FABRICIO DE SOUZA",
-            links: [
-                { icon: "bi-whatsapp", href: "https://wa.me/5541999555444", label: "Fabricio" },
-                { icon: "bi-instagram", href: "https://instagram.com/fabricio.desouza", label: "Fabricio" },
-                { icon: "bi-facebook", href: "https://facebook.com/fabricio.desouza", label: "Fabricio" },
-                { icon: "bi-linkedin", href: "https://linkedin.com/in/fabriciodesouza", label: "LinkedIn Fabricio" },
-                { icon: "bi-youtube", href: "https://youtube.com/@fabriciodesouza", label: "Fabricio" },
-            ],
-            logo: perfilFabricio,
-        },
-        {
-            id: "live-a-dream",
-            title: "LIVE A DREAM",
-            links: [
-                { icon: "bi-whatsapp", href: "https://wa.me/5541999333222", label: "Live A Dream" },
-                { icon: "bi-instagram", href: "https://instagram.com/liveadream", label: "Live A Dream" },
-                { icon: "bi-facebook", href: "https://facebook.com/liveadream", label: "Live A Dream" },
-                { icon: "bi-youtube", href: "https://youtube.com/@liveadream", label: "Live A Dream" },
-                { icon: "bi-twitter", href: "https://twitter.com/liveadream", label: "Twitter Live A Dream" },
-            ],
-            logo: logo,
-        },
-    ];
+const accordionData = [
+    {
+        id: "fabricio-de-souza",
+        title: "FABRICIO DE SOUSA",
+        links: [
+            { icon: "bi-instagram", href: "https://www.instagram.com/fabriciodesousaoficial/", label: "@fabriciodesousaoficial" },
+            { icon: "bi-facebook", href: "https://www.facebook.com/fabricio.desousa.775", label: "Fabricio de Sousa" },
+        ],
+        logo: perfilFabricio,
+    },
+    {
+        id: "the-evolution-method",
+        title: "THE EVOLUTION METHOD",
+        links: [
+            { icon: "bi-link-45deg", href: "https://theevolutionmethod.com/", label: "Elimine 10kg em 30 dias" },
+        ],
+        logo: logoMethod,
+    },
+    {
+        id: "live-a-dream",
+        title: "LIVE A DREAM",
+        links: [
+            {
+                icon: "bi-whatsapp",
+                href: "https://wa.me/554197147744?text=Ol%C3%A1%2C%20poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20live%20a%20dream%3F", label: "Live A Dream"
+            },
+            { icon: "bi-instagram", href: "https://instagram.com/liveadream", label: "Live A Dream" },
+        ],
+        logo: logoLiveADream,
+    },
+    {
+        id: "evolution-house",
+        title: "EVOLUTION HOUSE",
+        links: [
+            { icon: "bi-whatsapp", href: "https://wa.me/554197258589?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20a%20Evolution%20Sports..", label: "Evolution House" },
+            { icon: "bi-instagram", href: "https://instagram.com/evolutionhousecwb", label: "@evolutionhousecwb" },
+            { icon: "bi-facebook", href: "https://facebook.com/evolutionhousecwb", label: "Evolution House Suplementos" },
+        ],
+        logo: logo,
+    },
+    {
+        id: "canal-youtube",
+        title: "CANAL YOUTUBE",
+        links: [
+            {
+                icon: "bi-youtube",
+                href: "https://www.youtube.com/@fabriciometododaevolucao",
+                label: "Canal YouTube"
+            }
+        ],
+        logo: null,
+    },
+];
 
+export default function Connects() {
+    const [animate, setAnimate] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => setAnimate(true), 50);
+    }, []);
 
     return (
-        <div className="connects-wrapper">
-            <div className="connects-header d-flex align-items-start justify-content-center">
+        <div className="justify-items-center">
+            <div
+                className={animate ? `fade-in-up head` : "head"}
+                style={animate ? { animationDelay: `0.4s` } : {}}
+            >
                 <div className="logo-wrapper me-3">
                     <img src={logo} alt="Logo Evolution House" className="rounded-circle" />
                 </div>
@@ -110,11 +129,19 @@ export default function Connects() {
                 </div>
             </div>
 
-            <div className="accordion mt-4 w-100" id="socialAccordion">
-                {accordionData.map(({ id, title, links, logo }) => (
-                    <AccordionItem key={id} id={id} title={title} links={links} logo={logo} />
+            <div className={`accordion mt-4 w-100 ${animate ? "fade-in-up delay-2" : ""}`} id="socialAccordion">
+                {accordionData.map(({ id, title, links, logo }, index) => (
+                    <div key={id} className={animate ? `fade-in-up delay-${index + 3}` : ""}>
+                        <AccordionItem
+                            id={id}
+                            title={title}
+                            links={links}
+                            logo={logo}
+                        />
+                    </div>
                 ))}
             </div>
+
         </div>
     );
 }

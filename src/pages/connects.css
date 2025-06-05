@@ -1,114 +1,283 @@
-html, body, #root {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.justify-items-center{
+  justify-items: center;
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('../assets/images/img.png'); 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
-    color: black;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../assets/images/img.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+i {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.bi-instagram {
+  background: linear-gradient(45deg, #f9ce34, #ee2a7b 60%, #6228d7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bi-whatsapp {
+  color: #25d366 !important;
+}
+
+.bi-facebook {
+  color: #1877f3 !important;
+}
+
+.bi-youtube {
+  color: #ff0000 !important;
+}
+
+.bi-link-45deg,
+.bi-link {
+  color: #0d6efd !important; /* azul Bootstrap, ou escolha outra cor */
+}
+
+.head {
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
 }
 
 /* Header com logo e informações */
 .connects-header {
-    display: flex;
-    border-radius: 0;
+  display: flex;
+  border-radius: 0;
 }
 
 /* Logo à esquerda */
 .logo-wrapper {
-    width: 64px;
-    height: 64px;
-    flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+
+a :hover {
+  color: orange !important;
 }
 
 .logo-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background-color: black;
-    padding: 4px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: black;
+  padding: 4px;
+  border-radius: 50%;
 }
 
 /* Texto */
 .connects-header h5,
 .connects-header p {
-    margin: 0;
+  margin: 0;
 }
 
 .connects-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
 }
 
-/* Cards de redes sociais */
-.social-cards {
-    width: 100%;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
+/* Accordion */
+.accordion {
+  width: 100%;
+  max-width: 700px;
 }
+
+/* Accordion botão principal */
 .accordion-button {
-    background-color: #0000008c!important;
-    color: white!important;
-    margin-top: 1rem;
-    font-weight: bold;
+  background-color: #000000cc !important;
+  color: #ffffff !important;
+  font-weight: bold;
+  border: none;
+  padding: 1.2rem 1.5rem;
+  transition: background-color 0.3s ease;
+  border-radius: 12px;
 }
 
-.accordion-header {
-    background-color: #c486028c!important;
-    color: white!important;
-    border-radius: 8px 8px 0 0;
+.accordion-button:hover {
+  background-color: #111 !important;
 }
 
+/* Estado ativo */
 .accordion-button:not(.collapsed) {
-    background-color: #222;
+  background-color: #1a1a1a !important;
+  color: orange !important;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Cabeçalho */
+.accordion-header {
+  border-radius: 12px;
+  margin-top: 1rem;
+  overflow: hidden;
 }
 
 .accordion-body {
-    padding: 0!important;
-    border-radius: 0 0 8px 8px;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 0 0 12px 12px;
 }
 
-
-.social-card {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 1rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    color: white;
-    transition: all 0.3s ease;
-    margin: 1rem;
-}
-
+/* Logo pequena dentro do botão */
 .accordion-logo {
-  width: 32px;
-  height: 32px;
+  width: 50px;
+  height: 50px;
   object-fit: contain;
   border-radius: 50%;
+  background-color: black;
+  padding: 2px;
+  margin-right: 8px;
 }
 
-
+/* Social link cards */
 .social-card {
-    background-color: #0000009c;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.827);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
 }
 
 .social-card:hover {
-    opacity: 0.85;
-    transform: translateY(-2px);
+  opacity: 0.9;
+  transform: translateY(-3px);
+  background-color: #111;
+}
+
+/* Botão selecionar */
+button.btn-primary {
+  background-color: orange;
+  border: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+button.btn-primary:hover {
+  background-color: orange;
+  transform: scale(1.03);
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 216, 255, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 216, 255, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 216, 255, 0);
+  }
+}
+
+.accordion-button {
+  /* ...existing code... */
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes accordionHover {
+  0% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(1.04);
+  }
+
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+.accordion-button {
+  animation: pulse 1.5s infinite;
+}
+
+.accordion-button:hover {
+  animation: accordionHover 0.3s cubic-bezier(.4, 2, .6, 1) forwards !important;
+}
+
+.fade-in-up {
+  animation: fadeSlideUp 0.8s ease-out forwards;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 0.2s;
+}
+
+.delay-2 {
+  animation-delay: 0.4s;
+}
+
+.delay-3 {
+  animation-delay: 0.6s;
+}
+
+.delay-4 {
+  animation-delay: 0.8s;
+}
+
+.delay-5 {
+  animation-delay: 1s;
+}
+
+.delay-6 {
+  animation-delay: 1.2s;
 }
