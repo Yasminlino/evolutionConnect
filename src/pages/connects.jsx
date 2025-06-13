@@ -61,24 +61,22 @@ const accordionData = [
         logo: perfilFabricio,
     },
     {
+        id: "evolution-sports",
+        title: "EVOLUTION SPORTS",
+        links: [
+            { icon: "bi-whatsapp", href: "https://wa.me/554197258589?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20aula%20experimental.", label: "Evolution House" },
+            { icon: "bi-instagram", href: "https://www.instagram.com/evolutionsportsstudio/", label: "@evolutionsportsstudio" },
+            { icon: "bi-facebook", href: "https://www.facebook.com/people/Evolution-Sports/61566142844411/", label: "Evolution Sports" },
+        ],
+        logo: logo,
+    },
+    {
         id: "the-evolution-method",
         title: "THE EVOLUTION METHOD",
         links: [
             { icon: "bi-link-45deg", href: "https://theevolutionmethod.com/", label: "Elimine 10kg em 30 dias" },
         ],
         logo: logoMethod,
-    },
-    {
-        id: "live-a-dream",
-        title: "LIVE A DREAM",
-        links: [
-            {
-                icon: "bi-whatsapp",
-                href: "https://wa.me/554197147744?text=Ol%C3%A1%2C%20poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20live%20a%20dream%3F", label: "Live A Dream"
-            },
-            { icon: "bi-instagram", href: "https://instagram.com/liveadream", label: "Live A Dream" },
-        ],
-        logo: logoLiveADream,
     },
     {
         id: "evolution-house",
@@ -102,6 +100,18 @@ const accordionData = [
         ],
         logo: null,
     },
+    {
+        id: "live-a-dream",
+        title: "LIVE A DREAM",
+        links: [
+            {
+                icon: "bi-whatsapp",
+                href: "https://wa.me/554197147744?text=Ol%C3%A1%2C%20poderia%20me%20dar%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20live%20a%20dream%3F", label: "Live A Dream"
+            },
+            { icon: "bi-instagram", href: "https://instagram.com/liveadream", label: "Live A Dream" },
+        ],
+        logo: logoLiveADream,
+    },
 ];
 
 export default function Connects() {
@@ -117,11 +127,8 @@ export default function Connects() {
                 className={animate ? `fade-in-up head` : "head"}
                 style={animate ? { animationDelay: `0.4s` } : {}}
             >
-                <div className="logo-wrapper me-3">
-                    <img src={logo} alt="Logo Evolution House" className="rounded-circle" />
-                </div>
                 <div className="text-white">
-                    <h5 className="mb-1 fw-bold">Evolution House CWB</h5>
+                    <h5 className="mb-1 fw-bold">Fabricio de Sousa Oficial</h5>
                     <p className="mb-0">
                         <i className="bi bi-geo-alt-fill me-1"></i>
                         Des. Cid Campelo - 3888 - CIC
